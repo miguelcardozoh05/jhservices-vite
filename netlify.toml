@@ -1,0 +1,39 @@
+Para desplegar tu aplicación en Netlify y probar si funciona, sigue estos pasos:
+
+1. **Construir tu aplicación**:
+   Asegúrate de que tu aplicación esté lista para producción. Ejecuta el siguiente comando para construir tu aplicación:
+
+   ```sh
+   npm run build
+   ```
+
+   Esto generará una carpeta `dist` con los archivos estáticos de tu aplicación.
+
+2. **Crear una cuenta en Netlify**:
+   Si aún no tienes una cuenta en Netlify, regístrate en [Netlify](https://www.netlify.com/).
+
+3. **Desplegar tu aplicación en Netlify**:
+   - Inicia sesión en tu cuenta de Netlify.
+   - En el panel de control de Netlify, haz clic en "New site from Git".
+   - Conecta tu repositorio de GitHub, GitLab o Bitbucket donde está alojado tu proyecto.
+   - Selecciona el repositorio y la rama que deseas desplegar.
+   - Configura los ajustes de construcción:
+     - **Build Command**: `npm run build`
+     - **Publish Directory**: `dist`
+   - Haz clic en "Deploy site".
+
+4. **Probar tu aplicación**:
+   Una vez que Netlify haya terminado de desplegar tu aplicación, te proporcionará una URL donde puedes acceder a tu sitio. Visita esa URL y navega a la ruta `/ssh-account-creation` para probar la funcionalidad del componente `SSHAccountCreation`.
+
+### netlify.toml
+
+Opcionalmente, puedes agregar un archivo `netlify.toml` en la raíz de tu proyecto para configurar Netlify. Aquí hay un ejemplo básico:
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
